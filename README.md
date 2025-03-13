@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+下面是一份完整的 README 示例文档，包含部署到 GitHub Pages 的步骤以及 API Key 的配置说明。你可以将下面的内容保存为 README.md 并提交到你的仓库中：
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Game Preference Demo
 
-## Available Scripts
+这是一个基于 React 的游戏喜好表应用，允许用户搜索游戏并通过拖拽将游戏卡片放入自定义的喜好表格中。  
+- **中文模式** 下使用 Bangumi API（支持中文游戏名称），  
+- **英文模式** 下使用 RAWG API。
 
-In the project directory, you can run:
+应用支持编辑表格中每个格子的标签和中英文切换。
 
-### `npm start`
+## 特性
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **游戏搜索**：中文模式调用 Bangumi API，英文模式调用 RAWG API。
+- **拖拽交互**：将搜索到的游戏卡片拖拽到喜好表格中。
+- **标签编辑**：每个格子的标签可以实时编辑。
+- **中英文切换**：右上角按钮切换中文和英文模式。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API Key 配置
 
-### `npm test`
+本项目使用两个 API：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Bangumi API**  
+   - 用于中文搜索。  
+   - 搜索接口示例：  
+     ```
+     https://api.bgm.tv/search/subject/{关键词}?type=4&apikey={YOUR_BANGUMI_API_KEY}
+     ```
+     
+2. **RAWG API**  
+   - 用于英文搜索。  
+   - 搜索接口示例：  
+     ```
+     https://api.rawg.io/api/games?key={YOUR_RAWG_API_KEY}&search={关键词}
+     ```
+   - 请根据 [RAWG API 文档](https://rawg.io/apidocs) 申请并在代码中替换 RAWG API key。
 
-### `npm run build`
+## 部署到 GitHub Pages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+本项目基于 [Create React App](https://create-react-app.dev/) 构建，并使用 [gh-pages](https://www.npmjs.com/package/gh-pages) 部署到 GitHub Pages。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. 安装依赖
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+在项目根目录下执行：
 
-### `npm run eject`
+```bash
+npm install
+npm install --save gh-pages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. 配置 package.json
+在 package.json 中添加 homepage 字段，值为你的 GitHub Pages 地址：
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+"homepage": "https://{your_github_username}.github.io/game-preference-demo",
+同时在 scripts 部分添加部署相关脚本：
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+{
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
+3. 推送代码到 GitHub
+如果你还没有将代码提交到 GitHub，请在项目根目录下执行：
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/{your_github_username}/game-preference-demo.git
+git push -u origin main
+4. 部署
+在项目根目录下执行：
 
-## Learn More
+npm run deploy
+该命令会自动执行 npm run build 生成静态文件，并将生成的 build 文件夹推送到 GitHub 仓库的 gh-pages 分支。部署完成后，你的应用将在以下地址访问：
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+https://{your_github_username}.github.io/game-preference-demo/
+本地运行
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+在项目根目录下执行：
 
-### Code Splitting
+npm start
+然后打开 http://localhost:3000 以开发模式运行应用。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
