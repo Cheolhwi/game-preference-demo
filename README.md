@@ -32,6 +32,14 @@
      ```
    - 请根据 [RAWG API 文档](https://rawg.io/apidocs) 申请并在代码中替换 RAWG API key。
 
+   - 为方便管理，将这些 API key 存储在项目根目录下自行创建的 `.env` 文件中, 并将`.env`加入`.gitignore`
+
+    ```
+    REACT_APP_BANGUMI_API_KEY=5HdbVXpfq5pg9fhfyxAbIDBe2Q9O81rawc6AX3p9
+    REACT_APP_RAWG_API_KEY=YOUR_RAWG_API_KEY_HERE
+    ```
+
+
 ## 部署到 GitHub Pages
 
 本项目基于 [Create React App](https://create-react-app.dev/) 构建，并使用 [gh-pages](https://www.npmjs.com/package/gh-pages) 部署到 GitHub Pages。
