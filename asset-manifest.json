@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/game-preference-demo/static/css/main.0613cdfa.css",
+    "main.js": "/game-preference-demo/static/js/main.92a73027.js",
+    "static/js/453.01526d34.chunk.js": "/game-preference-demo/static/js/453.01526d34.chunk.js",
+    "index.html": "/game-preference-demo/index.html",
+    "main.0613cdfa.css.map": "/game-preference-demo/static/css/main.0613cdfa.css.map",
+    "main.92a73027.js.map": "/game-preference-demo/static/js/main.92a73027.js.map",
+    "453.01526d34.chunk.js.map": "/game-preference-demo/static/js/453.01526d34.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0613cdfa.css",
+    "static/js/main.92a73027.js"
+  ]
+}
