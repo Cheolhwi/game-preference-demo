@@ -72,15 +72,14 @@ git push -u origin main
 ```
 
 ### 4. 部署
-``` 
 在项目根目录下执行：
-
+```
 npm run deploy
-
 ```
 该命令会自动执行 npm run build 生成静态文件，并将生成的 build 文件夹推送到 GitHub 仓库的 gh-pages 分支。部署完成后，你的应用将在以下地址访问：
-
+```
 https://{your_github_username}.github.io/game-preference-demo/
+```
 
 ### 本地运行
 
