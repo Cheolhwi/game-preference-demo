@@ -216,3 +216,60 @@ html, body {
   color: #aaa;
   font-size: 14px;
 }
+
+@media only screen and (max-width: 768px) {
+  /* 将整体布局改为纵向排列 */
+  .app {
+    flex-direction: column;
+  }
+
+  /* 左侧面板全宽显示，并在上面 */
+  .left-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+  }
+
+  /* 右侧内容全宽显示 */
+  .right-content {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* 缩小右侧标题的外边距和字号 */
+  .right-content h1 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+  }
+
+  /* 调整拖拽表格布局：改为 2 列 */
+  .drag-table {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+    max-width: 100%;
+  }
+
+  /* 调整搜索栏按钮和输入框尺寸 */
+  .search-bar input {
+    padding: 6px;
+    font-size: 13px;
+  }
+  .search-bar button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  /* 缩小游戏卡片中封面的高度 */
+  .game-card .game-cover {
+    height: 60px;
+  }
+
+  /* 缩小表格单元格中封面的高度 */
+  .cell-cover {
+    height: 80px;
+  }
+
+  /* 可根据需要进一步调整其他元素的尺寸 */
+}
