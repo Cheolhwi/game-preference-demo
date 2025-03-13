@@ -1,38 +1,218 @@
-.App {
-  text-align: center;
+/* 全局及布局设置 */
+html, body {
+  margin: 0;
+  padding: 0;
+  /* 让页面整体高度自适应内容 */
+  height: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 整体布局：左侧面板 + 右侧内容 */
+.app {
+  display: flex;
+  min-height: 100vh; /* 可以保留，使页面至少铺满一屏 */
+  font-family: sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* 左侧面板 */
+.left-panel {
+  width: 300px;
+  background: #f0f0f0;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.left-panel h2 {
+  margin-top: 0;
+}
+
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.search-bar button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 搜索结果：纵向排列 */
+.search-results {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+/* 右侧内容 */
+.right-content {
+  position: relative;
+  flex: 1;
+  padding: 16px;
+  box-sizing: border-box;
+
+  /* 原先的 overflow-y: auto; 去掉，
+     这样页面整体可以滚动，避免底部被裁切 */
+  /* overflow-y: auto; */
+}
+
+.right-content h1 {
+  text-align: center;
+
+  /* 若觉得页面过高，可缩小或移除这段外边距 */
+  margin-top: 20px; /* 原先是 60px，可酌情调整 */
+}
+
+/* 右上角功能按钮 */
+.top-buttons {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.share-button,
+.lang-toggle-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.share-button {
+  background: #007bff;
+  color: #fff;
+}
+.share-button:hover {
+  background: #0056b3;
+}
+
+.lang-toggle-button {
+  background: #28a745;
+  color: #fff;
+}
+.lang-toggle-button:hover {
+  background: #1e7e34;
+}
+
+/* 拖拽表格：5 列 × 4 行 */
+.drag-table {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 8px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* 游戏卡片 */
+.game-card {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  cursor: grab;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+.game-card:hover {
+  transform: scale(1.02);
+}
+
+.game-card .game-cover {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  background: #eee;
+}
+.game-card .game-cover.placeholder {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #999;
+  font-size: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.game-name {
+  padding: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 表格单元格 */
+.drop-cell {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.drop-cell.highlight {
+  border-color: #66f;
+}
+
+.cell-content {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* 标签输入框 */
+.cell-label-input {
+  width: 100%;
+  margin-bottom: 4px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  outline: none;
+  color: #333;
+  font-family: inherit;
+}
+
+/* 游戏封面 */
+.cell-cover {
+  width: 100%;
+  height: 100px;    /* 表格里的高度可能比搜索结果略大 */
+  object-fit: cover;
+  background: #eee;
+}
+.cell-cover.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 12px;
+}
+
+.cell-name {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.cell-placeholder {
+  color: #aaa;
+  font-size: 14px;
 }
