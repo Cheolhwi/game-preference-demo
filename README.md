@@ -1,5 +1,3 @@
-下面是一份完整的 README 示例文档，包含部署到 GitHub Pages 的步骤以及 API Key 的配置说明。你可以将下面的内容保存为 README.md 并提交到你的仓库中：
-
 # Game Preference Demo
 
 这是一个基于 React 的游戏喜好表应用，允许用户搜索游戏并通过拖拽将游戏卡片放入自定义的喜好表格中。  
@@ -45,13 +43,15 @@
 ```bash
 npm install
 npm install --save gh-pages
+```
 
-2. 配置 package.json
+### 2. 配置 package.json
 在 package.json 中添加 homepage 字段，值为你的 GitHub Pages 地址：
-
+```
 "homepage": "https://{your_github_username}.github.io/game-preference-demo",
+```
 同时在 scripts 部分添加部署相关脚本：
-
+```
 {
   "scripts": {
     "start": "react-scripts start",
@@ -60,25 +60,35 @@ npm install --save gh-pages
     "deploy": "gh-pages -d build"
   }
 }
-3. 推送代码到 GitHub
+```
+### 3. 推送代码到 GitHub
 如果你还没有将代码提交到 GitHub，请在项目根目录下执行：
-
+```
 git init
 git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/{your_github_username}/game-preference-demo.git
 git push -u origin main
-4. 部署
+```
+
+### 4. 部署
+``` 
 在项目根目录下执行：
 
 npm run deploy
+
+```
 该命令会自动执行 npm run build 生成静态文件，并将生成的 build 文件夹推送到 GitHub 仓库的 gh-pages 分支。部署完成后，你的应用将在以下地址访问：
 
 https://{your_github_username}.github.io/game-preference-demo/
-本地运行
+
+### 本地运行
 
 在项目根目录下执行：
 
+```
 npm start
+```
+
 然后打开 http://localhost:3000 以开发模式运行应用。
 
