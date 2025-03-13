@@ -178,9 +178,10 @@ function App() {
     setCells(initialLabels.map((label) => ({ label, game: null })));
   }, [language]);
 
-  // 注意：这里我们使用 Bangumi API，因此 apiKey 改为你的 Bangumi API key
-  const bangumiKey = "5HdbVXpfq5pg9fhfyxAbIDBe2Q9O81rawc6AX3p9";
-  const rawgKey = "74994c13feea457f99ba69fc08546913"
+  // apiKey
+  const bangumiKey = process.env.REACT_APP_BANGUMI_API_KEY;
+  const rawgKey = process.env.REACT_APP_RAWG_API_KEY;
+
   const tableRef = useRef(null);
 
   // 按回车搜索
