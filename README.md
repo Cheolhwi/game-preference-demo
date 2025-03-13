@@ -35,7 +35,7 @@
    - 为方便管理，将这些 API key 存储在项目根目录下自行创建的 `.env` 文件中, 并将`.env`加入`.gitignore`
 
     ```
-    REACT_APP_BANGUMI_API_KEY=5HdbVXpfq5pg9fhfyxAbIDBe2Q9O81rawc6AX3p9
+    REACT_APP_BANGUMI_API_KEY=YOUR_BANGUMI_API_KEY_HERE
     REACT_APP_RAWG_API_KEY=YOUR_RAWG_API_KEY_HERE
     ```
 
